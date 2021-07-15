@@ -1,26 +1,19 @@
-import { Observer } from 'mobx-react-lite';
-import React from 'react';
-import './App.css';
-import { NewNoteForm } from './NewNoteForm';
-import { useNotesStore } from './NotesContext';
+import Movies from './mobX/movies/Movies';
+import Notes from './mobX/notes/Notes';
 
 function App() {
-  const notesStore = useNotesStore();
-  const renderFn = () => {
-    return (
-      <>
-        <ul>
-          {notesStore.notes.map((note) => (
-            <li onClick={() => notesStore.removeNote(note.id)} key={note.id}>
-              {note.text}
-            </li>
-          ))}
-        </ul>
-        <NewNoteForm />
-      </>
-    );
-  };
-  return <Observer>{renderFn}</Observer>;
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-around',
+        paddingTop: '150px',
+      }}
+    >
+      <Notes />
+      <Movies />
+    </div>
+  );
 }
 
 export default App;

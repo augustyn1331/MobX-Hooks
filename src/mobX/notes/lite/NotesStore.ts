@@ -1,17 +1,12 @@
 import { nanoid } from 'nanoid';
+import { NotesStore } from '../../../models';
 
-export interface notesState {
-  text: string;
-  id: string;
-}
-export interface notesStore {
-  notes: notesState[];
-  addNote: (text: string) => void;
-  removeNote: (text: string) => void;
-}
-export function createNotesStore(): notesStore {
+export function createNotesStore(): NotesStore {
   return {
+    //Tworzymy nasze obserwowalne zmienne
     notes: [{ text: '', id: '' }],
+    
+    //Tworzymy akcje
     addNote(text: string) {
       this.notes.push({
         text,

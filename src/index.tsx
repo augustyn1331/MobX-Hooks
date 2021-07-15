@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { NotesProvider } from './NotesContext';
+import { MoviesProvider } from './mobX/movies/MoviesContext';
+import { NotesProvider } from './mobX/notes/lite/NotesContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <NotesProvider>
-      <App />
+      <MoviesProvider>
+        <App />
+      </MoviesProvider>
     </NotesProvider>
   </React.StrictMode>,
   document.getElementById('root')

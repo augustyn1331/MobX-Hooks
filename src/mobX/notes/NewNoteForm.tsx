@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNotesStore } from './NotesContext';
+import { useNotesStore } from './lite/NotesContext';
 
 export const NewNoteForm = () => {
   const [noteText, setNoteText] = React.useState('');
